@@ -21,6 +21,17 @@ const eventsRoute = require('./routes/events');
 const contactRoute = require('./routes/contact');
 const knowledgeBaseRoute = require('./routes/knowledge_base');
 
+// Use routes
 app.use('/api/pages', pagesRoute);
-app.use('/api/support', supportRo
+app.use('/api/support', supportRoute);
+app.use('/api/products', productsRoute);
+app.use('/api/services', servicesRoute);
+app.use('/api/events', eventsRoute);
+app.use('/api/contact', contactRoute);
+app.use('/api/knowledge_base', knowledgeBaseRoute);
+
+app.get('/', (req, res) => res.send('Backend running!'));
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
